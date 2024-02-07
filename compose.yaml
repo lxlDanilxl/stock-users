@@ -1,13 +1,13 @@
 version: '1.0.0'
 services:
   mariadb:
-    image: mariadb
-    container_name: warehouse_db
+    image: mariadb:latest
+    container_name: users_db
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: warehouse
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MARIADB_DATABASE: mydatabase
+      MARIADB_PASSWORD: secret
+      MARIADB_ROOT_PASSWORD: verysecret
+      MARIADB_USER: myuser
     ports:
       - "3306:3306"
     volumes:
@@ -16,7 +16,7 @@ services:
       - user-microservice-network
     restart: always
   spring-app:
-    container_name: warehouse_api
+    container_name: users-microservice
     build:
       context: .
       dockerfile: Dockerfile
