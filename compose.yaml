@@ -4,7 +4,7 @@ services:
     image: mariadb:latest
     container_name: users_db
     environment:
-      MARIADB_DATABASE: mydatabase
+      MARIADB_DATABASE: users_db
       MARIADB_PASSWORD: secret
       MARIADB_ROOT_PASSWORD: verysecret
       MARIADB_USER: myuser
